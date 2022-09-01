@@ -1,0 +1,8 @@
+configuration {
+    width: 20;
+    padding: 20;
+    terminal: "foot";
+    show-icons: true;
+}
+
+/* vim:ft=css
