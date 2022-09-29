@@ -4,7 +4,7 @@
     "height": 16,
     "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
     "modules-center": [],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
+    "modules-right": ["backlight", "pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
     "sway/workspaces": {
         "disable-scroll": false,
         "all-outputs": true,
@@ -28,6 +28,14 @@
         // "format": "{:%Y-%m-%d %H:%M:%S}"
     },
 
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": [""],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "if [[ `brightnessctl g` -gt 2000 ]];then brightnessctl set 5%- ; fi;"
+    },
+
     "cpu": {
         "format": " {usage}%",
         "tooltip": false
@@ -39,14 +47,14 @@
     },
 
     "battery": {
-        "interval": "5",
+        "interval": "1",
+         "design-capacity": true,
         "format": "{icon}  {capacity}% {time}",
         "states": {
             "warning": 25,
             "critical": 15
         },
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format-plugged": " {capacity}% {timeTo}",
         "format-icons": ["", "", "", "", ""]
     },
 

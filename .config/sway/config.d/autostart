@@ -1,14 +1,6 @@
-# /* vim: set filetype=conf : */
-
-# exec {
-#     # Notification Daemon
-#     mako
-# }
-
-
-# Sway Idle
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet --indicator
+exec --no-startup-id /usr/bin/lxpolkit
+exec --no-startup-id volumeicon -d hw:0 &
+exec /usr/lib/kdeconnectd

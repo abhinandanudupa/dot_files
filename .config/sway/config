@@ -200,20 +200,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet --indicator
-
-exec xinput set-prop "MSFT0001:01 04F3:3140 Touchpad" "libinput Tapping Enabled" 1
-exec --no-startup-id /usr/bin/lxpolkit
-exec --no-startup-id volumeicon -d hw:0 &
-
-# # Include the dynamic theme config
-# include ~/.config/sway/themes/dynamic
-
-# # Include all configuration files
+# Include all configuration files
 include ./config.d/*
 
-# # Include OS specific configuration
+# Include OS specific configuration
 # include /etc/sway/config.d/*
 
