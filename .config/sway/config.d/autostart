@@ -4,3 +4,5 @@ exec --no-startup-id nm-applet --indicator
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id volumeicon -d hw:0 &
 exec /usr/lib/kdeconnectd
+exec mako
+# exec --no-startup-id blueman-applet
