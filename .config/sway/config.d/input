@@ -7,7 +7,7 @@ input type:touchpad {
 
     # Factor of scroll speed
     # 1 = Default, 0.5 = 50% Speed
-    scroll_factor 0.80
+    scroll_factor 0.75
 
     # Tap to click enabled
     tap enabled
