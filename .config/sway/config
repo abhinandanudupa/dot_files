@@ -204,5 +204,5 @@ bindsym $mod+r mode "resize"
 include ./config.d/*
 
 # Include OS specific configuration
-# include /etc/sway/config.d/*
+include /etc/sway/config.d/*
 
