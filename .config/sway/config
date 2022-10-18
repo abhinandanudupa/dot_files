@@ -25,7 +25,7 @@ set $menu rofi -show run | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg '/home/user/.local/share/backgrounds/Richard Horvath_RAZU_R66vUc.jpeg' fill
+output * bg '/home/user/.local/share/backgrounds/nord-aquarium.png' fill
 #
 # Example configuration:
 #
