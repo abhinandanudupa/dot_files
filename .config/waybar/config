@@ -4,7 +4,7 @@
     "height": 16,
     "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
     "modules-center": [],
-    "modules-right": ["backlight", "bluetooth", "pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
+    "modules-right": ["backlight", "pulseaudio", "cpu", "memory", "battery", "clock", "tray"],
     "sway/workspaces": {
         "disable-scroll": false,
         "all-outputs": true,
@@ -30,7 +30,7 @@
 
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon} {percent}%",
+        "format": "{icon} {percent:3}%",
         "format-icons": [""],
         "on-scroll-up": "brightnessctl set 5%+",
         "on-scroll-down": "if [[ `brightnessctl g` -gt 2000 ]];then brightnessctl set 5%- ; fi;"
@@ -48,41 +48,46 @@
     },
 
     "cpu": {
-        "format": " {usage}%",
-        "tooltip": false
+        "format": "💻 {usage}%",
+        "tooltip": true
     },
 
     "memory": {
         "interval": 1,
-        "format": "{used:0.1f}/{total:0.1f}G"
+        "format": " {percentage}%",
+        "tooltip": true
     },
 
     "battery": {
         "interval": "1",
-         "design-capacity": true,
-        "format": "{icon}  {capacity}% {time}",
+        "design-capacity": true,
+        // "format": "{icon} {capacity:3}% [{time}]",
+        "format": "{icon} {capacity:3}%",
         "states": {
             "warning": 25,
             "critical": 15
         },
-        "format-plugged": " {capacity}% {timeTo}",
-        "format-icons": ["", "", "", "", ""]
+        // "format-charging": " {capacity:3}% {toTime}",
+        "format-charging": " {capacity:3}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": true
     },
 
     "network": {
-        "format-wifi": " {essid} : {signalStrength}%",
-        "format-ethernet": " {ifname}",
+        // "format-wifi": " {essid}",
+        "format-wifi": " ",
+        "format-ethernet": "",
         "format-linked": " (No IP)",
         "format-disconnected": "⚠ Disconnected",
         "format-alt": "{ifname}: {ipaddr}"
     },
 
     "pulseaudio": {
-        "format": "{icon}  {volume}% {format_source}",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": " {volume}%",
+        "format": "{icon} {volume:3}% {format_source}",
+        "format-muted": "🔇 {format_source}",
+        "format-bluetooth": "{icon} {volume:3}% {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-source": "🎤 {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
