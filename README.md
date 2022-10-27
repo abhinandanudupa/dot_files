@@ -7,6 +7,7 @@
 - `swaylock`
 - `waybar`
 - `sway` - of course!
+- `vim`
 - `i3` and `mako` if you like so
 
 #### Credits
