@@ -4,6 +4,13 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+
+# Include OS specific configuration
+include /etc/sway/config.d/*.conf
+exec /usr/libexec/sway-systemd/session.sh
+exec /usr/libexec/sway-systemd/assign-cgroups.py
+
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -20,12 +27,12 @@ set $term alacritty
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # Application Launcher
-set $menu rofi -show run | xargs swaymsg exec -- 
+set $menu rofi -show run -sidebar-mode | xargs swaymsg exec -- 
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg '/home/user/.local/share/backgrounds/nord-aquarium.png' fill
+output * bg '~/Downloads/Wallpapers/rwk2la1j8uz81.png' fit
 #
 # Example configuration:
 #
@@ -84,6 +91,9 @@ output * bg '/home/user/.local/share/backgrounds/nord-aquarium.png' fill
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
+
+    # Lock the screen
+    bindsym $mod+Ctrl+l exec swaylock -f
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -201,8 +211,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Include all configuration files
-include ./config.d/*
+include ~/.config/sway/config.d/*
 
 # Include OS specific configuration
-include /etc/sway/config.d/*
+include /etc/sway/config.d/*.conf
 

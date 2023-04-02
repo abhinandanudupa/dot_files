@@ -2,14 +2,14 @@
 
 # Sway Idle
 exec swayidle -w \
-i         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock -f -c 000000' \
          timeout 600 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
+         resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 
 # exec swayidle -w \
 #     timeout 295 'pactl list | rg RUNNING || toastify send -t 4500 "screen will lock in 5 seconds"' \
-#     timeout 300 'pactl list | rg RUNNING || lock -f -c 000000' \
+#     timeout 300 'pactl list | rg RUNNING || lock -f' \
 #     timeout 600 'pactl list | rg RUNNING || swaymsg output * dpms off' \
 #     resume "swaymsg output * dpms on" \
-#     before-sleep 'lock -f -c 000000'
+#     before-sleep 'lock -f'

@@ -4,7 +4,7 @@ for_window {
     
     # Inhibit Idle when ANY application is fullscreen
     [class="^.*"] inhibit_idle fullscreen
-    [app_id="^.*"] inhibit_idle full
+    [app_id="^.*"] inhibit_idle fullscreen
 
     # Set floating for window roles and types
     [window_role="pop-up"] floating enable
@@ -16,3 +16,4 @@ for_window {
     [window_role="About"] floating enable
 
 }
+

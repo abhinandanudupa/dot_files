@@ -1,15 +1,17 @@
 # Window borders and gaps
-gaps outer 2
-gaps inner 2
+gaps outer 4
+gaps inner 4
+
 default_border pixel 2
 default_floating_border pixel 2
-hide_edge_borders smart
 
-# class                 border  backgr. text    indic.  child_border
-client.focused          #555555 #aaaaaa #000000 #dddddd #000000
-client.focused_inactive #333333 #eeeeee #000000 #cccccc #cccccc
-client.unfocused        #333333 #cccccc #8f8f8f #999999 #dddddd
-client.urgent           #000000 #900000 #ffffff #900000 #900000
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36 #282A36
-client.background       #ffffff
+hide_edge_borders smart_no_gaps
+
+# class                 border    backgr.   text      indic.
+client.focused          #ffffffff #ffffffff #000000ff #ffffffff
+client.focused_inactive #ffffff99 #999999ff #000000ff #999999ff
+client.unfocused        #ffffff00 #99999966 #ddddddff #666666ff
+client.urgent           #000000ff #900000ff #ffffffff #900000ff
+# client.placeholder    #282A36ff #282A36ff #F8F8F2ff #282A36ff
+client.background       #ffffff00
 

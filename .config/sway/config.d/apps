@@ -10,5 +10,17 @@ for_window {
   [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
   [title="Save File"] floating enable
   [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+  # [title="meet.google.com is sharing your screen."] kill - will prevent screen sharing on Chromium base browsers
 
 }
+
+# apply mark for Xwayland and wayland native browser windows
+for_window [class="Chromium-browser"] mark Browser
+for_window [class="Brave-browser"] mark Browser
+for_window [class="firefox"]  mark Browser
+for_window [class="librefox"]  mark Browser
+for_window [app_id="Chromium-browser"] mark Browser
+for_window [app_id="brave-browser"] mark Browser
+for_window [app_id="firefox"] mark Browser
+for_window [app_id="librefox"] mark Browser
+
