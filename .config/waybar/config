@@ -1,104 +1,116 @@
 {
-    "layer": "top",
-    "position": "bottom",
-    "height": 16,
-    "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
-    "modules-center": [],
-    "modules-right": ["backlight", "pulseaudio", "cpu", "memory", "battery", "clock", "tray"],
-    "sway/workspaces": {
-        "disable-scroll": false,
-        "all-outputs": true,
-        "format": "{name}"
-    },
+  "layer": "top",
+  "position": "bottom",
+  "height": 18,
+  "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
+  "modules-center": [],
+  "modules-right": ["backlight", "pulseaudio", "cpu", "memory", "battery", "clock", "tray"],
+  "sway/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true,
+    "format": "{name}"
+  },
 
-    "sway/mode": {
-        "format": "{}"
-    },
+  "sway/mode": {
+    "format": "{}"
+  },
 
-    "tray": {
-        "icon-size": 16,
-        "spacing": 10
-    },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
 
-    "clock": {
-        "interval": 1,
-        // Human Friendly
-        "format": "{:%A, %B %d %Y at %H:%M:%S %p}",
-        // 24hr Robot Friendly
-        // "format": "{:%Y-%m-%d %H:%M:%S}"
-    },
+  "clock": {
+    "interval": 1,
+    // Human Friendly
+    "format": "{:%A, %d %B %Y, %H:%M:%S %p}",
+    // 24hr Robot Friendly
+    // "format": "{:%Y-%m-%d %H:%M:%S}"
+  },
 
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{icon} {percent:3}%",
-        "format-icons": [""],
-        "on-scroll-up": "brightnessctl set 5%+",
-        "on-scroll-down": "if [[ `brightnessctl g` -gt 2000 ]];then brightnessctl set 5%- ; fi;"
-    },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent:3}%",
+    "format-icons": ["  "],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "if [[ `brightnessctl g` -gt 2000 ]];then brightnessctl set 5%- ; fi;"
+  },
 
-    "bluetooth": {
-      "format": " {status}",
-      "format-connected": " {device_alias}",
-      "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-      // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-      "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
-    },
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
 
-    "cpu": {
-        "format": "💻 {usage}%",
-        "tooltip": true
-    },
+  "cpu": {
+    "interval": 1,
+    "format": "💻 {usage}%",
+    "tooltip": true
+  },
 
-    "memory": {
-        "interval": 1,
-        "format": " {percentage}%",
-        "tooltip": true
-    },
+  "memory": {
+    "interval": 1,
+    "format": " {percentage}%",
+    "tooltip": true
+  },
 
-    "battery": {
-        "interval": "1",
-        "design-capacity": true,
-        // "format": "{icon} {capacity:3}% [{time}]",
-        "format": "{icon} {capacity:3}%",
-        "states": {
-            "warning": 25,
-            "critical": 15
-        },
-        // "format-charging": " {capacity:3}% {toTime}",
-        "format-charging": " {capacity:3}%",
-        "format-icons": ["", "", "", "", ""],
-        "tooltip": true
+  "battery": {
+    "interval": 1,
+    "design-capacity": false,
+    // "format": "{icon} {capacity:3}% [{time}]",
+    "format": "{icon} {capacity:3}%",
+    "states": {
+      "warning": 25,
+      "critical": 15
     },
+    // "format-charging": " {capacity:3}% {toTime}",
+    "format-charging": " {capacity:3}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip": true
+  },
 
-    "network": {
-        // "format-wifi": " {essid}",
-        "format-wifi": " ",
-        "format-ethernet": "",
-        "format-linked": " (No IP)",
-        "format-disconnected": "⚠ Disconnected",
-        "format-alt": "{ifname}: {ipaddr}"
+  "network": {
+    // "format-wifi": " {essid}",
+    "format-wifi": " ",
+    "format-ethernet": "",
+    "format-linked": " (No IP)",
+    "format-disconnected": "⚠ Disconnected",
+    "format-alt": "{ifname}: {ipaddr}"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}{volume:3}% | {format_source}",
+    "format-muted": "🔇 {format_source}",
+    "format-bluetooth": " {volume:3}% | {format_source}",
+    "format-bluetooth-muted": " 🔇 {format_source}",
+    "format-source": "{volume:3}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", "", ""]
     },
+    "on-click": "pavucontrol"
+  },
 
-    "pulseaudio": {
-        "format": "{icon} {volume:3}% {format_source}",
-        "format-muted": "🔇 {format_source}",
-        "format-bluetooth": "{icon} {volume:3}% {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-source": "🎤 {volume}%",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    }
+  /*
+  "pulseaudio#output": {
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+  },
+  
+  "pulseaudio#input" : {
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+  },
+  */
 }
-
