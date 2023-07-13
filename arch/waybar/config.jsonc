@@ -1,0 +1,111 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "height": 0,
+  "modules-left": [
+    "sway/mode",
+    "sway/workspaces",
+    "wlr/workspaces",
+    "sway/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "backlight",
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "battery",
+    "tray"
+  ],
+  "sway/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true,
+    "format": "{name}",
+    "urgent": ""
+  },
+  "sway/mode": {
+    "format": " {}",
+    "max-length": 50
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%H:%M:%S %p | %A, %d %B %Y}"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "☀"
+    ],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "if [[ `brightnessctl g` -gt 2000 ]];then brightnessctl set 5%- ; fi;"
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "🔥 {usage}%",
+    "tooltip": true
+  },
+  "memory": {
+    "interval": 1,
+    "format": "🫙 {percentage}%",
+    "tooltip": true
+  },
+  "battery": {
+    "interval": 1,
+    "design-capacity": false,
+    "format": "{icon} {capacity:3}%",
+    "states": {
+      "warning": 25,
+      "critical": 15
+    },
+    "format-charging": " {capacity:3}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip": true
+  },
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-linked": " (No IP)",
+    "format-disconnected": "⚠ Disconnected",
+    "format-alt": "{ifname}: {ipaddr}"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-muted": "🔇 {format_source}",
+    "format-bluetooth": " {volume}% {format_source}",
+    "format-bluetooth-muted": "{icon} {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  }
+}
