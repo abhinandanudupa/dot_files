@@ -14,6 +14,9 @@ for_window {
     [window_type="dialog"] floating enable
     [window_type="menu"] floating enable
     [window_role="About"] floating enable
-
+    [window_role="File Operation Progress"] floating enable sticky
+    [window_role="Open Files"] floating enable sticky
+    [window_role="Save As"] floating enable
+    [instance="file_progress"]  sticky enable
 }
 

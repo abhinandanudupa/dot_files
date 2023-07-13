@@ -1,10 +1,11 @@
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet --indicator
-exec --no-startup-id /usr/bin/lxpolkit
+# exec --no-startup-id lxpolkit
 # exec --no-startup-id /usr/lib/polkit-1/polkit-agent-helper-1
 # exec --no-startup-id volumeicon -d hw:0 &
 # exec /usr/lib/kdeconnectd
-exec mako
+# exec mako
 # exec --no-startup-id blueman-applet
+exec --no-startup-id python ~/.config/sway/scripts/transparency.py
 

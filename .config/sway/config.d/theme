@@ -7,11 +7,12 @@ default_floating_border pixel 2
 
 hide_edge_borders smart_no_gaps
 
-# class                 border    backgr.   text      indic.
-client.focused          #ffffffff #ffffffff #000000ff #ffffffff
-client.focused_inactive #ffffff99 #999999ff #000000ff #999999ff
-client.unfocused        #ffffff00 #99999966 #ddddddff #666666ff
-client.urgent           #000000ff #900000ff #ffffffff #900000ff
-# client.placeholder    #282A36ff #282A36ff #F8F8F2ff #282A36ff
-client.background       #ffffff00
+# class                 border    backgr.   text      indic.    child_border
+client.focused          #2222ddff #ffffffff #000000ff #ffffffff #ddddddff
+client.focused_inactive #2222dd99 #bbbbbbff #000000ff #ffffff99 #dddddd99
+client.unfocused        #00000022 #aaaaaa66 #222222ff #66666699 #dddddd66
+client.urgent           #000000ff #900000ff #ffffffff #900000ff #900000ff
+
+# client.placeholder      #282A36ff #282A36ff #F8F8F2ff #282A36ff
+# client.background       #000000ff
 

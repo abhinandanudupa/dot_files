@@ -27,12 +27,14 @@ set $term alacritty
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # Application Launcher
-set $menu rofi -show run -sidebar-mode | xargs swaymsg exec -- 
+set $rofi_cmd rofi \
+        -terminal '$term'
+set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi 
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg '~/Downloads/Wallpapers/rwk2la1j8uz81.png' fit
+output * bg '~/Downloads/Wallpapers/v5vvmhv184pa1.png' fill
 #
 # Example configuration:
 #
@@ -210,9 +212,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Include all configuration files
-include ~/.config/sway/config.d/*
+# # Include all configuration files
+# include ~/.config/sway/config.d/*
 
 # Include OS specific configuration
-include /etc/sway/config.d/*.conf
+include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*")'
 
