@@ -14,7 +14,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: Hack, sans-serif;
+  font-family: "DejaVuSansMono Nerd Font", sans-serif;
   font-size: 14px;
   min-height: 0;
   box-shadow: none;
@@ -22,7 +22,7 @@
 }
 
 window#waybar {
-  background-color: rgba(50, 50, 50, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
   opacity: 1;
 }
@@ -31,6 +31,7 @@ window#waybar {
   font-family: Noto Sans, sans-serif;
   font-weight: 300;
   padding: 0px 9px;
+  font-size: 14px;
 }
 
 #workspaces {
@@ -41,18 +42,18 @@ window#waybar {
   padding: 3px 9px 3px 9px;
   background: rgba(0, 0, 0, 0.3);
   color: #ffffff;
-  border-top: 5px solid transparent;
-  font-weight: 900;
+  border-bottom: 5px solid transparent;
+  font-weight: 600;
 }
 
 #workspaces button.focused {
-  border-top: 5px solid #cccccc;
+  border-bottom: 5px solid #cccccc;
 }
 
 #workspaces button:hover {
   color: #000000;
   background-color: #ffffff;
-  border-top: 5px solid #333333;
+  border-bottom: 5px solid #333333;
 }
 
 #workspaces button.focused:hover {
@@ -77,11 +78,11 @@ window#waybar {
 #backlight {
   padding: 0px 15px;
   color: #ffffff;
-  font-weight: 900;
+  font-weight: 600;
 }
 
 #clock {
-  background-color: rgba(128, 203, 214, 0.3);
+  /* background-color: rgba(177, 65, 122, 0.4); */
 }
 
 /*

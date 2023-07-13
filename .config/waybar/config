@@ -16,7 +16,7 @@
   },
 
   "tray": {
-    "icon-size": 16,
+    "icon-size": 20,
     "spacing": 10
   },
 
@@ -30,16 +30,16 @@
 
   "backlight": {
     "device": "intel_backlight",
-    "format": "{icon} {percent:3}%",
+    "format": "{percent:3}% {icon}",
     "format-icons": ["  "],
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "if [[ `brightnessctl g` -gt 2000 ]];then brightnessctl set 5%- ; fi;"
   },
 
   "bluetooth": {
-    "format": " {status}",
-    "format-connected": " {device_alias}",
-    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "format": "{status} ",
+    "format-connected": "{device_alias} ",
+    "format-connected-battery": "{device_alias}  {device_battery_percentage}%",
     // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
@@ -49,13 +49,13 @@
 
   "cpu": {
     "interval": 1,
-    "format": "💻 {usage}%",
+    "format": "{usage}%  ",
     "tooltip": true
   },
 
   "memory": {
     "interval": 1,
-    "format": " {percentage}%",
+    "format": "{percentage}%  ",
     "tooltip": true
   },
 
@@ -63,13 +63,13 @@
     "interval": 1,
     "design-capacity": false,
     // "format": "{icon} {capacity:3}% [{time}]",
-    "format": "{icon} {capacity:3}%",
+    "format": "{capacity:3}% {icon}",
     "states": {
       "warning": 25,
       "critical": 15
     },
-    // "format-charging": " {capacity:3}% {toTime}",
-    "format-charging": " {capacity:3}%",
+    // "format-charging": "{capacity:3}%   {toTime}",
+    "format-charging": "{capacity:3}%  ",
     "format-icons": ["", "", "", "", ""],
     "tooltip": true
   },
@@ -84,11 +84,11 @@
   },
 
   "pulseaudio": {
-    "format": "{icon}{volume:3}% | {format_source}",
-    "format-muted": "🔇 {format_source}",
-    "format-bluetooth": " {volume:3}% | {format_source}",
-    "format-bluetooth-muted": " 🔇 {format_source}",
-    "format-source": "{volume:3}%",
+    "format": "{volume:3}% {icon} | {format_source}",
+    "format-muted": "{format_source} 🔇 ",
+    "format-bluetooth": "{volume:3}%  | {format_source}",
+    "format-bluetooth-muted": "{format_source} 🔇 ",
+    "format-source": "{volume:3}% {",
     "format-source-muted": "",
     "format-icons": {
       "headphone": "",
