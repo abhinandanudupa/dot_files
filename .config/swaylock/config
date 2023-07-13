@@ -1,6 +1,9 @@
 # Source: https://github.com/rbnis/dotfiles/blob/master/.config/swaylock/config
 ignore-empty-password
 font=Sans
+image=/usr/share/backgrounds/default.png
+scaling=fill
+
 indicator-radius=120
 indicator-thickness=60
 indicator-caps-lock
