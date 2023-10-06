@@ -7,12 +7,12 @@ opt.number = true                -- bool: Show line numbers
 opt.relativenumber = true        -- bool: Show relative line numbers
 opt.scrolloff = 4                -- int:  Min num lines of context
 opt.signcolumn = "yes"           -- str:  Show the sign column
-vim.opt.showcmd = true           -- bool: Shows command
-vim.opt.laststatus = 2           -- int:  
-vim.opt.autoread = true          -- bool: Loads the latest content if modified by another program
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.shiftround = true
+opt.showcmd = true               -- bool: Shows command
+opt.laststatus = 2               -- int:  
+opt.autoread = true              -- bool: Loads the latest content if modified by another program
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.shiftround = true
 
 -- [[ Filetypes ]]
 opt.encoding = 'utf8'            -- str:  String encoding to use
@@ -30,9 +30,9 @@ opt.hlsearch = false             -- bool: Highlight search matches
 
 -- [[ Whitespace ]]
 opt.expandtab = true             -- bool: Use spaces instead of tabs
-opt.shiftwidth = 4               -- num:  Size of an indent
-opt.softtabstop = 4              -- num:  Number of spaces tabs count for in insert mode
-opt.tabstop = 4                  -- num:  Number of spaces tabs count for
+opt.shiftwidth = 2               -- num:  Size of an indent
+opt.softtabstop = 2              -- num:  Number of spaces tabs count for in insert mode
+opt.tabstop = 2                  -- num:  Number of spaces tabs count for
 
 -- [[ Splits ]]
 opt.splitright = true            -- bool: Place new window to right of current one
