@@ -4,10 +4,8 @@
   "mod": "dock",
   "height": 0,
   "modules-left": [
-    "sway/mode",
-    "sway/workspaces",
-    "wlr/workspaces",
-    "sway/window"
+    "hyprland/workspaces",
+    "hyprland/window"
   ],
   "modules-center": [
     "clock"
@@ -15,6 +13,7 @@
   "modules-right": [
     "backlight",
     "pulseaudio",
+    "temperature",
     "cpu",
     "memory",
     "battery",
@@ -26,17 +25,49 @@
     "format": "{name}",
     "urgent": ""
   },
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "urgent": ""
+  },
+  "hyprland/window": {
+    "max-length": 200,
+    "separate-outputs": true
+  },
   "sway/mode": {
     "format": " {}",
     "max-length": 50
   },
   "tray": {
-    "icon-size": 16,
+    "icon-size": 18,
     "spacing": 10
   },
   "clock": {
     "interval": 1,
-    "format": "{:%H:%M:%S %p | %A, %d %B %Y}"
+    "format": "{:%H:%M:%S on %a, %d %b %Y}",
+    "tooltip-format": "\n<span size='9pt' > {calendar}</span>",
+    "calendar": {
+      "mode"          : "year",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "on-click-right": "mode",
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions":  {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
   },
   "backlight": {
     "device": "intel_backlight",
@@ -69,20 +100,27 @@
   "battery": {
     "interval": 1,
     "design-capacity": false,
-    "format": "{icon} {capacity:3}%",
+    "format": "{icon} {capacity}%",
     "states": {
       "warning": 25,
       "critical": 15
     },
-    "format-charging": " {capacity:3}%",
+    "format-charging": "  {capacity}%",
     "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
     ],
     "tooltip": true
+  },
+  "temperature": {
+    "interval": 1,
+    "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+    "critical-threshold": 80,
+    "format": "🧨 {temperatureC}°C"
   },
   "network": {
     "format-wifi": "",
@@ -92,18 +130,18 @@
     "format-alt": "{ifname}: {ipaddr}"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}% {format_source}",
+    "format": "{icon} {volume:3}% {format_source}",
     "format-muted": "🔇 {format_source}",
     "format-bluetooth": " {volume}% {format_source}",
     "format-bluetooth-muted": "{icon} {format_source}",
     "format-source": " {volume}%",
-    "format-source-muted": "",
+    "format-source-muted": " ",
     "format-icons": {
       "default": [
-        "",
-        "",
-        "",
-        ""
+        " ",
+        " ",
+        " ",
+        " "
       ]
     },
     "on-click": "pavucontrol"
