@@ -1,12 +1,19 @@
 ## My Custom DE Configurations
 
-### Arch
+### Arch (on Hyprland)
 - `hyprland`
 - `kitty`
-- `wofi`
 - `waybar`
+
+### Arch (on SwayWM)
+- `sway`
+- `alacritty`
+- `waybar`
+
+#### Arch (Common)
 - `swaybg`
 - `nvim`
+- `wofi`
 
 ### Ubuntu (no longer used)
 - `foot`
