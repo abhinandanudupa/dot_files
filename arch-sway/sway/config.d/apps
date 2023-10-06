@@ -1,0 +1,26 @@
+# Application specific window settings
+
+for_window {
+
+  [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize
+  # [app_id="firefox" title="Library"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+  [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
+  [title="Picture in picture"] floating enable, sticky enable
+  [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
+  [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
+  [title="Save File"] floating enable
+  [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+  # [title="meet.google.com is sharing your screen."] kill - will prevent screen sharing on Chromium base browsers
+
+}
+
+# apply mark for Xwayland and wayland native browser windows
+for_window [class="Chromium-browser"] mark Browser
+for_window [class="Brave-browser"] mark Browser
+for_window [class="firefox"]  mark Browser
+for_window [class="librewolf"]  mark Browser
+for_window [app_id="Chromium-browser"] mark Browser
+for_window [app_id="brave-browser"] mark Browser
+for_window [app_id="firefox"] mark Browser
+for_window [app_id="librewolf"] mark Browser
+

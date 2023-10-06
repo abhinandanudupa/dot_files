@@ -1,0 +1,19 @@
+# /* vim: set filetype=conf : */
+
+for_window {
+    
+    # Inhibit Idle when ANY application is fullscreen
+    [class="^.*"] inhibit_idle fullscreen
+    [app_id="^.*"] inhibit_idle fullscreen
+
+    # Set floating for window roles and types
+    [window_role="pop-up"] floating enable
+    [window_role="bubble"] floating enable
+    [window_role="task_dialog"] floating enable
+    [window_role="Preferences"] floating enable
+    [window_type="dialog"] floating enable
+    [window_type="menu"] floating enable
+    [window_role="About"] floating enable
+
+}
+
