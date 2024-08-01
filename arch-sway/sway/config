@@ -43,7 +43,7 @@ set $menu wofi --show="drun,run"
 # xwayland enable
 
 # Font
-font pango:SourceCodePro Medium 11
+font pango:SourceCodePro Bold 11
 
 ### Output configuration
 #
@@ -233,9 +233,9 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CU
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 exec /bin/bash export GTK_USE_PORTAL=0
-exec /bin/bash export XDG_CURRENT_DESKTOP=sway
 exec systemctl --user import-environment
 exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway
+exec /bin/bash export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 # exec /bin/bash $HOME/.config/polybar/launch.sh
 exec waybar -c $HOME/.config/waybar/config-sway.jsonc -s $HOME/.config/waybar/style-sway.css
 
