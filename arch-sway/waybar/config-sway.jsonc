@@ -25,7 +25,7 @@
         "separate-outputs": true
     },
     "sway/mode": {
-        "format": " {}",
+        "format": "{}",
         "max-length": 50
     },
     "tray": {
@@ -43,7 +43,7 @@
             "☀"
         ],
         "on-scroll-up": "brightnessctl set 5%+",
-        "on-scroll-down": "if [[ `brightnessctl g` -gt 2000 ]];then brightnessctl set 5%- ; fi;"
+        "on-scroll-down": "if [[ $(brightnessctl g) -gt 2000 ]]; then brightnessctl set 5%-; fi"
     },
     "bluetooth": {
         "format": " {status}",
@@ -72,13 +72,13 @@
             "warning": 25,
             "critical": 15
         },
-        "format-charging": "  {capacity}%",
+        "format-charging": " {capacity}%",
         "format-icons": [
-            " ",
-            " ",
-            " ",
-            " ",
-            " "
+            "",
+            "",
+            "",
+            "",
+            ""
         ],
         "tooltip": true
     },

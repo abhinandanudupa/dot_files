@@ -1,146 +1,128 @@
-@keyframes blink-warning {
-    to {
-        background-color: #bf616a;
-    }
-}
-
-@keyframes blink-critical {
-    to {
-        color: #2e3440;
-        background-color: #bf616a;
-    }
-}
-
 /*
-*
-* Catppuccin Mocha palette
-* Maintainer: rubyowo
-*
-*/
+ * Waybar Style Configuration
+ *
+ * This CSS file defines the visual appearance of Waybar.
+ * It includes styles for a black text on white background theme,
+ * color inversion on hover for interactive elements,
+ * and a blinking warning for low battery capacity.
+ */
 
-@define-color base   #1e1e2e;
-@define-color mantle #181825;
-@define-color crust  #11111b;
-
-@define-color text     #cdd6f4;
-@define-color subtext0 #a6adc8;
-@define-color subtext1 #bac2de;
-
-@define-color surface0 #313244;
-@define-color surface1 #45475a;
-@define-color surface2 #585b70;
-
-@define-color overlay0 #6c7086;
-@define-color overlay1 #7f849c;
-@define-color overlay2 #9399b2;
-
-@define-color blue      #89b4fa;
-@define-color lavender  #b4befe;
-@define-color sapphire  #74c7ec;
-@define-color sky       #89dceb;
-@define-color teal      #94e2d5;
-@define-color green     #a6e3a1;
-@define-color yellow    #f9e2af;
-@define-color peach     #fab387;
-@define-color maroon    #eba0ac;
-@define-color red       #f38ba8;
-@define-color mauve     #cba6f7;
-@define-color pink      #f5c2e7;
-@define-color flamingo  #f2cdcd;
-@define-color rosewater #f5e0dc;
-
-* {
-    border: none;
-    border-radius: 0;
-    font-family: "FantasqueSansM Nerd Font";
-    font-weight: 500;
-    font-size: 18px;
-    box-shadow: none;
-    text-shadow: none;
-}
-
+/* General Waybar Styling */
 window#waybar {
-    background-color: rgba(4, 4, 4, 0.2) ;
-    color: @text;
-    opacity: 1;
+    background-color: #FFFFFF; /* White background */
+    color: #000000; /* Black text */
+    font-family: "Monofur  Nerd Font", "Inter", sans-serif; /* Using Inter font */
+    font-size: 20px;
+    /* padding: 20px; */
+    margin: 10px 7px;
 }
 
-#window {
-    padding: 0px 5px;
-}
-
-#workspaces {
-    color: rgb(146, 131, 116);
-}
-
-#workspaces button {
-    color: @subtext0;
-    padding: 6px;
-    margin: 2px;
-}
-
-#workspaces button.focused {
-    font-weight: 900;
-}
-
-#workspaces button.focused:hover {
-    font-weight: 900;
-}
-
-#mode {
-    padding: 0px 9px;
-    background-color: #a3be8c;
-    font-size: 14px;
-}
-
-#clock,
-#language,
-#pulseaudio,
-#tray,
-#memory,
+/* Module Styling */
+#workspaces,
+#mode,
 #cpu,
+#memory,
+#temperature,
+#backlight,
+#pulseaudio,
+#network,
+#bluetooth,
 #battery,
-#backlight {
-    padding: 0px 10px;
+#clock,
+#tray,
+#custom-media,
+#custom-power,
+#custom-weather,
+#custom-launcher {
+    background-color: #FFFFFF; /* White background for modules */
+    color: #000000; /* Black text for modules */
+    padding: 0 10px;
+    /* margin: 0 3px; */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
 }
 
-#clock {
-  font-size: 16px;
+/* Hover Effect for Workspaces and Buttons */
+#workspaces button,
+#mode button,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#network:hover,
+#bluetooth:hover,
+#battery:hover,
+#clock:hover,
+#tray:hover,
+#custom-media:hover,
+#custom-power:hover,
+#custom-weather:hover,
+#custom-launcher:hover {
+    background-color: #000000; /* Invert background to black on hover */
+    color: #FFFFFF; /* Invert text to white on hover */
 }
 
-#cpu.warning {
-    color: #ebcb8b;
+/* Specific styling for workspaces buttons */
+#workspaces button {
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 0 10px;
+    /* margin: 0 3px; */
 }
 
-#cpu.critical {
-    color: #d08770;
+/* Active workspace button */
+#workspaces button.active {
+    background-color: #333333; /* Black background for active workspace */
+    color: #FFFFFF; /* White text for active workspace */
 }
 
-#memory.warning {
-    color: #ebcb8b;
+/* Urgent workspace button */
+#workspaces button.urgent {
+    background-color: #FF0000; /* Red background for urgent workspace */
+    color: #FFFFFF; /* White text for urgent workspace */
 }
 
-#memory.critical {
-    color: #d08770;
+/* Animations for low battery warning */
+@keyframes blink-background {
+    0% { background-color: #FFFFFF; }
+    50% { background-color: #FFD700; } /* Gold color for warning */
+    100% { background-color: #FFFFFF; }
 }
 
-#battery {
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+@keyframes blink-text {
+    0% { color: #000000; }
+    50% { color: #FF0000; } /* Red color for warning text */
+    100% { color: #000000; }
 }
 
-#battery.charging {
-    color: #11cc11;
+/* Battery module styling for low capacity */
+#battery.warning,
+#battery.critical,
+#battery.low {
+    animation: blink-background 1s step-end infinite; /* Apply blinking background animation */
 }
 
-#battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
+/* This applies the text blink to the battery module when in warning/critical/low state */
+#battery.warning,
+#battery.critical,
+#battery.low {
+    animation: blink-text 1s step-end infinite; /* Apply blinking text animation */
 }
 
-#battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
+/* Specific icon styling for battery */
+#battery.charging, #battery.plugged {
+    color: #26A65B; /* Green for charging/plugged */
+}
+
+#battery.discharging {
+    color: #000000; /* Black for discharging */
+}
+
+/* Tooltip Styling */
+tooltip {
+    color: #000000; /* Black background for tooltips */
+    background-color: #FFFFFF; /* White text for tooltips */
+    padding: 5px 10px;
+    font-size: 12px;
 }
 
