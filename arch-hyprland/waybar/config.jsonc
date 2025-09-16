@@ -76,7 +76,7 @@
       "☀"
     ],
     "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "if [[ `brightnessctl g` -gt 2000 ]]; then brightnessctl set 5%- ; fi;"
+    "on-scroll-down": "if [[ $(brightnessctl g) -gt 2000 ]]; then brightnessctl set 5%-; fi"
   },
   "bluetooth": {
     "format": " {status}",
